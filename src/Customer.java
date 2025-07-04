@@ -88,15 +88,26 @@ public class Customer {
 
         balance -= total;
 
+        shippingService.printShippingDetails(shippableItems);
 
+        printCheckoutReceipt(subtotal, shippingFees, total);
 
 
         cart.clearCart();
 
 
+    }
 
-
-
+    private void printCheckoutReceipt(double subtotal, double shipping, double total) {
+        System.out.println("\n** Checkout receipt **");
+        for (CartItem item : cart.getCartItems()) {
+            System.out.printf("%dx %-12s %6.2f\n",
+                    item.getQuantity(), item.getProduct().getName(), item.calculateTotalPrice());
+        }
+        System.out.println("--------------------------");
+        System.out.printf("Subtotal     %8.2f\n", subtotal);
+        System.out.printf("Shipping     %8.2f\n", shipping);
+        System.out.printf("Amount       %8.2f\n", total);
     }
 
 
