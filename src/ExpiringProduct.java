@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 
 public abstract class ExpiringProduct extends Product{
     private LocalDate expirationDate;
