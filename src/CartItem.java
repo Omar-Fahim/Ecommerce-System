@@ -1,7 +1,7 @@
 public class CartItem {
 
-    Product product;
-    int quantity;
+   private Product product;
+   private int quantity;
 
 
     public CartItem(Product product, int quantity) {
@@ -29,6 +29,6 @@ public class CartItem {
     public double calculateTotalPrice()	 {
         return product.getPrice() * quantity;
     }
-    
+
 
 }
