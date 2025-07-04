@@ -8,6 +8,11 @@ public class Customer {
     private double balance;
     private Cart cart;
 
+    public Customer(String name, double balance, Cart cart) {
+        this.name = name;
+        this.balance = balance;
+        this.cart = new Cart();
+    }
     public String getName() {
         return name;
     }
@@ -47,11 +52,12 @@ public class Customer {
 
     public void checkout(){
 
-        if(cart.isEmpty() || cart == null) {
+        if(cart.isEmpty()) {
             throw new IllegalStateException("Cart is empty");
         }
-        double subtotal = cart.calculateSubTotalPrice();
 
+
+        double subtotal = cart.calculateSubTotalPrice();
         ShippingService shippingService = new ShippingService();
         List<Shippable> shippableItems = cart.getShippableItems();
         double shippingFees = shippingService.calculateShippingFees(shippableItems);
@@ -61,6 +67,7 @@ public class Customer {
         if (balance < total) {
             throw new IllegalStateException("Insufficient balance");
         }
+
 
         for (CartItem item : cart.getCartItems()) {
             Product product = item.getProduct();
@@ -72,13 +79,20 @@ public class Customer {
             }
         }
 
+
         for (CartItem item : cart.getCartItems()) {
             Product product = item.getProduct();
             int quantity = item.getQuantity();
             product.setQuantity(product.getQuantity() - quantity);
         }
+
         balance -= total;
+
+
+
+
         cart.clearCart();
+
 
 
 
