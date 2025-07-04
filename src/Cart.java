@@ -48,6 +48,22 @@ public class Cart {
         }
     }
 
+    public double calculateSubTotalPrice() {
+        double total = 0.0;
+        for (CartItem item : cartItems) {
+            total += item.calculateTotalPrice();
+        }
+        return total;
+    }
+
+    public void clearCart() {
+        cartItems.clear();
+    }
+
+    public boolean isEmpty() {
+        return cartItems.isEmpty();
+    }
+
 
 
 
