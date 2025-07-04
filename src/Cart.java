@@ -67,6 +67,17 @@ public class Cart {
         return cartItems.isEmpty();
     }
 
+    public List<Shippable> getShippableItems() {
+
+        List<Shippable> shippableItems = new ArrayList<>();
+        for (CartItem item : cartItems) {
+            if (item.getProduct() instanceof Shippable) {
+                shippableItems.add((Shippable) item.getProduct());
+            }
+        }
+        return shippableItems;
+    }
+
 
 
 
