@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Customer {
 
     // Assumption: A customer can have only one cart.
@@ -50,7 +52,11 @@ public class Customer {
         }
         double subtotal = cart.calculateSubTotalPrice();
 
-        double total = subtotal;
+        ShippingService shippingService = new ShippingService();
+        List<Shippable> shippableItems = cart.getShippableItems();
+        double shippingFees = shippingService.calculateShippingFees(shippableItems);
+        double total = subtotal+ shippingFees;
+
 
         if (balance < total) {
             throw new IllegalStateException("Insufficient balance");
