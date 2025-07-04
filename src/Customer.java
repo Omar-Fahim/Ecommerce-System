@@ -43,7 +43,41 @@ public class Customer {
         }
     }
 
+    public void checkout(){
 
+        if(cart.isEmpty() || cart == null) {
+            throw new IllegalStateException("Cart is empty");
+        }
+        double subtotal = cart.calculateSubTotalPrice();
+
+        double total = subtotal;
+
+        if (balance < total) {
+            throw new IllegalStateException("Insufficient balance");
+        }
+
+        for (CartItem item : cart.getCartItems()) {
+            Product product = item.getProduct();
+            if (product.isExpired()) {
+                throw new IllegalStateException(product.getName() + " is expired.");
+            }
+            if (!product.isAvailable(item.getQuantity())) {
+                throw new IllegalStateException(product.getName() + " is out of stock.");
+            }
+        }
+
+        for (CartItem item : cart.getCartItems()) {
+            Product product = item.getProduct();
+            int quantity = item.getQuantity();
+            product.setQuantity(product.getQuantity() - quantity);
+        }
+        balance -= total;
+        cart.clearCart();
+
+
+
+
+    }
 
 
 
