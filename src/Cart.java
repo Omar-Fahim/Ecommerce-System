@@ -25,6 +25,9 @@ public class Cart {
 
     public void addCartItem(Product product, int quantity) {
 
+        if(!product.isAvailable(quantity)){
+            throw new IllegalArgumentException("Product is not available in the requested quantity.");
+        }
 
         for (CartItem item : cartItems) {
             if (item.getProduct().equals(product)) {

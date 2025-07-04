@@ -38,6 +38,10 @@ public abstract class Product {
         return false;
     }
 
+    public boolean isAvailable(int quantity) {
+        return this.quantity >= quantity;
+    }
+
 
 
 }
