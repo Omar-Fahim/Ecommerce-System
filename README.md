@@ -34,7 +34,7 @@ A Java-based e-commerce system implementing core features such as product manage
 This project utilizes several well-known design patterns and architecture principles:
 
 - **Builder Pattern**
-  Used in the ProductBuilder class to build complex product objects and handle optional fields, as products may have more optional fields in the future.
+  Used in the ProductBuilder class to construct complex product objects with optional parameters (e.g., weight, expiration date) in a clear and flexible way
 - **Interface-Based Programming**  
   Key behaviors (e.g., shippable, expirable) are defined as interfaces, supporting open-closed design.
 - **Separation of Concerns & Modularity**  
@@ -88,33 +88,29 @@ java -cp out/production/Ecommerce-System Runner
 
 ---
 
-## Usage Example
+## Usage Example One
 
-Here is a sample code demonstrating the primary features:
 
 ```java
-import java.time.LocalDate;
+Customer c1 = new Customer("Omar Shaaban", 15000);
+Product p1 = new ProductBuilder("Cheese", 100, 5)
+                .setWeight(200)
+                .setExpirationDate(LocalDate.of(2025, 7, 30))
+                .build();
 
-public class Runner {
-    public static void main(String[] args) {
-        Customer c1 = new Customer("Omar Shaaban", 15000);
-        Product p1 = ProductFactory.createShippableExpirableProduct(
-            "Cheese", 100, 5, 200, LocalDate.of(2025, 7, 30)
-        );
-        Product p2 = ProductFactory.createShippableExpirableProduct(
-            "Biscuits", 150, 5, 700, LocalDate.of(2025, 7, 30)
-        );
+Product p2 = new ProductBuilder("Biscuits", 150, 5)
+                .setWeight(700)
+                .setExpirationDate(LocalDate.of(2025, 7, 30))
+                .build();
 
-        c1.addToCart(p1, 2);
-        c1.addToCart(p2, 1);
-        c1.checkout();
-    }
-}
+c1.addToCart(p1, 2);
+c1.addToCart(p2, 1);
+c1.checkout();
 ```
 
 ---
 
-## Sample Output
+## Sample Output One
 
 ```
 ** Shipment notice **
@@ -130,7 +126,34 @@ Subtotal       350.00
 Shipping        30.00
 Amount         380.00
 ```
+## Usage Example Two
+```java
+Customer c1 = new Customer("Omar Shaaban", 15000);
+Product p1 = new ProductBuilder("Cheese", 100, 5)
+                .setExpirationDate(LocalDate.of(2025, 7, 30))
+                .build();
 
+Product p2 = new ProductBuilder("Biscuits", 150, 5)
+                .setExpirationDate(LocalDate.of(2025, 7, 30))
+                .build();
+
+c1.addToCart(p1, 2);
+c1.addToCart(p2, 1);
+c1.checkout();
+```
+# Sample Output Two
+```
+** Shipment notice **
+No shippable items in the cart.
+
+** Checkout receipt **
+2x Cheese       200.00
+1x Biscuits     150.00
+--------------------------
+Subtotal       350.00
+Shipping         0.00
+Amount         350.00
+```
 ---
 
 ## Contributing
