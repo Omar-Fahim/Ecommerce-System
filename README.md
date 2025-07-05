@@ -1,58 +1,58 @@
+# 🛒 Ecommerce-System
 
-# Ecommerce-System
-
-A Java-based e-commerce system implementing core features such as product management, a shopping cart, checkout, and shipping logic. The project utilizes OOP principles, several design patterns, and modular architecture for maintainability and extensibility.
+A Java-based e-commerce system with core features like product management, shopping cart, checkout, and shipping. Designed with OOP principles, design patterns, and a modular structure for clean, maintainable code.
 
 ---
 
-## Table of Contents
+## 📑 Table of Contents
 
 - [Features](#features)
 - [Architecture & Design Patterns](#architecture--design-patterns)
 - [Techniques Used](#techniques-used)
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
-- [Usage Example](#usage-example)
-- [Sample Output](#sample-output)
+- [Usage Example 1](#usage-example-1)
+- [Sample Output 1](#sample-output-1)
+- [Usage Example 2](#usage-example-2)
+- [Sample Output 2](#sample-output-2)
 - [Contributing](#contributing)
 - [Contact](#contact)
 
 ---
 
-## Features
+## ✨ Features
 
-- **Product Management**: Add, edit, and remove products (including expirable and shippable items).
-- **Shopping Cart**: Customers can add items to their cart and manage quantities.
-- **Checkout Process**: Handles payment, validates stock and customer balance.
-- **Shipping Logic**: Calculates shipping fees based on product weight.
-- **Receipt Generation**: Prints detailed shipment notices and receipts.
-
----
-
-## Architecture & Design Patterns
-
-This project utilizes several well-known design patterns and architecture principles:
-
-- **Builder Pattern**
-  Used in the ProductBuilder class to construct complex product objects with optional parameters (e.g., weight, expiration date) in a clear and flexible way
-- **Interface-Based Programming**  
-  Key behaviors (e.g., shippable, expirable) are defined as interfaces, supporting open-closed design.
-- **Separation of Concerns & Modularity**  
-  The codebase is organized into packages like `Models`, `Services`, `Interfaces`, `Factories`, and `Concrete_Classes`.
+- **Product Management**: Create, edit, and remove products (normal, expirable, shippable, or both).  
+- **Shopping Cart**: Customers can add products, adjust quantities, and remove items.  
+- **Checkout Process**: Validates stock levels, checks customer balance, and finalizes purchases.  
+- **Shipping Logic**: Calculates shipping fees based on total weight.  
+- **Receipts**: Prints detailed shipment notices and receipts after checkout.  
 
 ---
 
-## Techniques Used
+## 🏗️ Architecture & Design Patterns
 
-- **Object-Oriented Programming (OOP)**
-- **Java 8+ Features**: Lambda expressions, streams, and the improved Date/Time API (`LocalDate`).
-- **Clear Layering**: Entities, business logic, and utilities are separated for clarity and maintainability.
-- **Input Validation**: Ensures data integrity during checkout and shipping.
-- **Extensible Product Model**: Supports various product types via interfaces and factories.
+This project applies several design patterns and clean architecture principles:
+
+- **Builder Pattern**  
+  Used in `ProductBuilder` to create complex products with optional attributes like weight and expiration date.  
+- **Interfaces**  
+  Defines key behaviors (e.g., `Shippable`, `Expirable`) to support open-closed design.  
+- **Modular Design**  
+  Code organized into packages like `Models`, `Services`, `Interfaces`, `Builders`, and `Concrete_Classes` for better separation of concerns.  
 
 ---
 
-## Project Structure
+## 💻 Techniques Used
+
+- Object-Oriented Programming (OOP)  
+- Java 8+ features: lambda expressions, streams, and `LocalDate` API.  
+- Input validation during cart updates and checkout.  
+- Extensible product model supporting multiple types via builder and interfaces.  
+
+---
+
+## 📁 Project Structure
 
 ```
 Ecommerce-System/
@@ -91,17 +91,33 @@ Ecommerce-System/
 
 ### Compilation & Running
 
-```sh
+### 📥 Clone the Repository
+
+```bash
 git clone https://github.com/Omar-Fahim/Ecommerce-System.git
+```
+
+### 📂 Navigate to the Project Folder
+
+```bash
 cd Ecommerce-System
+```
+
+### 🛠️ Compile the Source Code
+
+```bash
 javac -d out/production/Ecommerce-System src/**/*.java
+```
+
+### 🚀 Run the Application
+
+```bash
 java -cp out/production/Ecommerce-System Runner
 ```
 
 ---
 
-## Usage Example One
-
+## 📖 Usage Example 1
 
 ```java
 Customer c1 = new Customer("Omar Shaaban", 15000);
@@ -122,7 +138,7 @@ c1.checkout();
 
 ---
 
-## Sample Output One
+## 📝 Sample Output 1
 
 ```
 ** Shipment notice **
@@ -138,14 +154,18 @@ Subtotal       350.00
 Shipping        30.00
 Amount         380.00
 ```
-## Usage Example Two
+
+---
+
+## 📖 Usage Example 2
+
 ```java
 Customer c1 = new Customer("Omar Shaaban", 15000);
-Product p1 = new ProductBuilder("Cheese", 100, 5)
+Product p1 = new ProductBuilder("Bread", 100, 5)
                 .setExpirationDate(LocalDate.of(2025, 7, 30))
                 .build();
 
-Product p2 = new ProductBuilder("Biscuits", 150, 5)
+Product p2 = new ProductBuilder("Cucumbers", 150, 5)
                 .setExpirationDate(LocalDate.of(2025, 7, 30))
                 .build();
 
@@ -153,30 +173,35 @@ c1.addToCart(p1, 2);
 c1.addToCart(p2, 1);
 c1.checkout();
 ```
-# Sample Output Two
+
+---
+
+## 📝 Sample Output 2
+
 ```
 ** Shipment notice **
 No shippable items in the cart.
 
 ** Checkout receipt **
-2x Cheese       200.00
-1x Biscuits     150.00
+2x Bread       200.00
+1x Cucumbers     150.00
 --------------------------
 Subtotal       350.00
 Shipping         0.00
 Amount         350.00
 ```
+
 ---
 
-## Contributing
+## 🤝 Contributing
 
 Contributions are welcome! Please fork the repository and submit pull requests for improvements or bug fixes.
 
 ---
 
-## Contact
+## 📬 Contact
 
 - **Author:** [Omar Fahim](https://github.com/Omar-Fahim)
-- **Email:** [omar_shaaban@outlook.com]
+- **Email:** omar_shaaban@outlook.com
 
 ---
