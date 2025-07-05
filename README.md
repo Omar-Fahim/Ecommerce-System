@@ -145,5 +145,3 @@ Contributions are welcome! Please fork the repository and submit pull requests f
 - **Email:** [omar_shaaban@outlook.com]
 
 ---
-
-Let me know if you want to include UML diagrams, more code samples, or a deep dive into specific patterns or classes!
