@@ -60,13 +60,25 @@ Ecommerce-System/
 ├── .gitignore
 ├── README.md
 ├── src/
+│   ├── Builders/
+│   │   └── ProductBuilder.java
 │   ├── Concrete_Classes/
-│   ├── Factories/
+│   │   ├── ExpiringProduct.java
+│   │   ├── NormalProduct.java
+│   │   ├── ShippableProduct.java
+│   │   └── Shippable_and_ExpirableProduct.java
 │   ├── Interfaces/
+│   │   └── Shippable.java
 │   ├── Models/
+│   │   ├── Cart.java
+│   │   ├── CartItem.java
+│   │   ├── Customer.java
+│   │   └── Product.java
 │   ├── Services/
+│   │   └── ShippingService.java
 │   └── Runner.java
 └── .idea/
+
 ```
 
 ---
