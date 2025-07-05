@@ -33,8 +33,8 @@ A Java-based e-commerce system implementing core features such as product manage
 
 This project utilizes several well-known design patterns and architecture principles:
 
-- **Factory Pattern**  
-  Used in the `ProductFactory` class to encapsulate object creation logic for different product types (shippable, expirable, etc.).
+- **Builder Pattern**
+  Used in the ProductBuilder class to build complex product objects and handle optional fields, as products may have more optional fields in the future.
 - **Interface-Based Programming**  
   Key behaviors (e.g., shippable, expirable) are defined as interfaces, supporting open-closed design.
 - **Separation of Concerns & Modularity**  
