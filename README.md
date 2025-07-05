@@ -1,6 +1,3 @@
-Here’s a complete, professional README for your project, incorporating a detailed overview, design patterns, techniques, and a code example with the corresponding output. This README will help users understand your architecture and usage at a glance.
-
----
 
 # Ecommerce-System
 
