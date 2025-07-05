@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Cart {
 
@@ -67,17 +66,23 @@ public class Cart {
         return cartItems.isEmpty();
     }
 
-    public List<Shippable> getShippableItems() {
+    public Map<Shippable, Integer> getShippableItems() {
+        Map<Shippable, Integer> shippableMap = new LinkedHashMap<>();
 
-        List<Shippable> shippableItems = new ArrayList<>();
         for (CartItem item : cartItems) {
-            if (item.getProduct() instanceof Shippable) {
-                shippableItems.add((Shippable) item.getProduct());
+            Product product = item.getProduct();
+
+            if (product instanceof Shippable) {
+                Shippable shippableProduct = (Shippable) product;
+                int quantity = item.getQuantity();
+
+                shippableMap.put(shippableProduct,
+                        shippableMap.getOrDefault(shippableProduct, 0) + quantity);
             }
         }
-        return shippableItems;
-    }
 
+        return shippableMap;
+    }
 
 
 

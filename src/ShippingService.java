@@ -1,27 +1,32 @@
 import java.util.List;
+import java.util.Map;
 
 public class ShippingService {
 
 
-    public double calculateTotalWeight(List<Shippable> shippableItems) {
+    public double calculateTotalWeight(Map<Shippable, Integer> shippableItems ) {
 
         if (shippableItems == null || shippableItems.isEmpty()) {
             return 0.0;
         }
         double totalWeight = 0.0;
 
-        for (Shippable item : shippableItems) {
-                totalWeight += item.getWeight();
+        for (Map.Entry<Shippable, Integer> entry : shippableItems.entrySet()) {
+            Shippable item = entry.getKey();
+            int quantity = entry.getValue();
+            totalWeight += item.getWeight() * quantity;
         }
         return totalWeight;
+
+
     }
 
 
 
-    public double calculateShippingFees(List<Shippable> shippableItems) {
+    public double calculateShippingFees(Map<Shippable, Integer> shippableItems) {
 
         double totalWeight = calculateTotalWeight(shippableItems);
-        return (totalWeight/1000) * 1.25;
+        return (totalWeight*30) /1100;
     }
 
     private String formatWeight(double grams) {
@@ -33,7 +38,7 @@ public class ShippingService {
     }
 
 
-    public void printShippingDetails(List<Shippable> shippableItems) {
+    public void printShippingDetails(Map<Shippable, Integer> shippableItems) {
 
         System.out.println("\n** Shipment notice **");
 
@@ -42,15 +47,19 @@ public class ShippingService {
             return;
         }
 
-        for (Shippable item : shippableItems) {
-            System.out.printf("%dx %-12s %6s\n", ((Product)item).getQuantity(),item.getName(), formatWeight(item.getWeight()));
-        }
 
+        for (Map.Entry<Shippable, Integer> entry : shippableItems.entrySet()) {
+
+            Shippable item = entry.getKey();
+            System.out.printf("%dx %-12s %6s\n", entry.getValue(),item.getName(), formatWeight(entry.getValue()* item.getWeight()));
+
+        }
         System.out.println("Total package weight " + formatWeight(calculateTotalWeight(shippableItems)));
 
 
 
     }
+
 
 
 

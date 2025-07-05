@@ -1,4 +1,6 @@
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Customer {
 
@@ -59,7 +61,7 @@ public class Customer {
 
         double subtotal = cart.calculateSubTotalPrice();
         ShippingService shippingService = new ShippingService();
-        List<Shippable> shippableItems = cart.getShippableItems();
+        Map<Shippable,Integer> shippableItems = cart.getShippableItems();
         double shippingFees = shippingService.calculateShippingFees(shippableItems);
         double total = subtotal+ shippingFees;
 
