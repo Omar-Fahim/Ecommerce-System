@@ -11,10 +11,7 @@ A Java-based e-commerce system with core features like product management, shopp
 - Techniques Used
 - Project Structure
 - Getting Started
-- Usage Example 1
-- Sample Output 1
-- Usage Example 2
-- Sample Output 2
+-Demo Scenarios
 - Contributing
 - Contact
 ---
@@ -114,7 +111,7 @@ java -cp out/production/Ecommerce-System Runner
 
 ---
 
-## 📖 Usage Example 1
+## 📖 Scenario 1 (Shippable Items)
 
 ```java
 Customer c1 = new Customer("Omar Shaaban", 15000);
@@ -154,7 +151,7 @@ Amount         380.00
 
 ---
 
-## 📖 Usage Example 2
+## 📖 Scenario 2 (No Shippable Items)
 
 ```java
 Customer c1 = new Customer("Omar Shaaban", 15000);
@@ -186,6 +183,80 @@ No shippable items in the cart.
 Subtotal       350.00
 Shipping         0.00
 Amount         350.00
+```
+-----
+
+## Scenario 3 (Insufficient Balance)
+```java
+Customer c1 = new Customer("Omar Shaaban", 200);
+Product p1 = new ProductBuilder("Ball", 100, 5)
+                .build();
+
+Product p2 = new ProductBuilder("T-Shirt", 150, 5)
+                .build();
+
+c1.addToCart(p1, 2);
+c1.addToCart(p2, 1);
+c1.checkout();
+```
+---
+## Sample Output 3
+```
+Exception in thread "main" java.lang.IllegalStateException: Insufficient balance
+
+```
+## Scenario 4 (Cart is Empty)
+```java
+ Customer c1 = new Customer("Omar Shaaban", 200);
+ c1.checkout();
+```
+---
+## Sample Output 4
+```
+Exception in thread "main" java.lang.IllegalStateException: Models.Cart is empty
+```
+## Scenario 5 (Product Sold After Being Added to the Cart)
+``` java
+Customer c1 = new Customer("Omar Shaaban", 600);
+Product p1 = new ProductBuilder("Ball", 100, 2)
+                .build();
+Product p2 = new ProductBuilder("T-Shirt", 150, 1)
+                .build();
+c1.addToCart(p1, 2);
+c1.addToCart(p2, 1);
+Customer c2 = new Customer("Omar Shaaban", 500);
+c2.addToCart(p1,1);
+c1.checkout();
+c2.checkout();
+```
+---
+## Sample Output 5
+```
+** Shipment notice **
+No shippable items in the cart.
+
+** Checkout receipt **
+2x Ball         200.00
+1x T-Shirt      150.00
+--------------------------
+Subtotal       350.00
+Shipping         0.00
+Amount         350.00
+Exception in thread "main" java.lang.IllegalStateException: Ball is out of stock.
+```
+---
+## Scenario 6 (Can not Add to the Cart More Than the Available Quantity)
+```java
+  Customer c1 = new Customer("Omar Shaaban", 600);
+  Product p1 = new ProductBuilder("Ball", 100, 1)
+                .build();
+  c1.addToCart(p1, 2);
+  c1.checkout();
+```
+---
+## Sample Output 6
+```
+Exception in thread "main" java.lang.IllegalArgumentException: Models.Product is not available in the requested quantity.
 ```
 
 ---
