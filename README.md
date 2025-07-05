@@ -34,7 +34,7 @@ A Java-based e-commerce system implementing core features such as product manage
 This project utilizes several well-known design patterns and architecture principles:
 
 - **Builder Pattern**
-  Used in the ProductBuilder class to build complex product objects and handle optional fields, as products may have more optional fields in the future.
+  Used in the ProductBuilder class to construct complex product objects with optional parameters (e.g., weight, expiration date) in a clear and flexible way
 - **Interface-Based Programming**  
   Key behaviors (e.g., shippable, expirable) are defined as interfaces, supporting open-closed design.
 - **Separation of Concerns & Modularity**  
