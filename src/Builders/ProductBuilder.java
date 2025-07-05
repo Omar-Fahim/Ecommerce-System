@@ -15,19 +15,10 @@ public class ProductBuilder {
     private Double weight;
     private LocalDate expirationDate;
 
-    public ProductBuilder setName(String name) {
+    public ProductBuilder(String name, double price, int quantity) {
         this.name = name;
-        return this;
-    }
-
-    public ProductBuilder setPrice(double price) {
         this.price = price;
-        return this;
-    }
-
-    public ProductBuilder setQuantity(int quantity) {
         this.quantity = quantity;
-        return this;
     }
 
     public ProductBuilder setWeight(double weight) {

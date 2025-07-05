@@ -10,17 +10,12 @@ public class Runner {
     public static void main(String []args) {
 
         Customer c1 = new Customer("Omar Shaaban", 15000);
-        Product p1 = new ProductBuilder()
-                .setName("Cheese")
-                .setPrice(100)
-                .setQuantity(5)
+        Product p1 = new ProductBuilder("Cheese", 100, 5)
                 .setWeight(200)
                 .setExpirationDate(LocalDate.of(2025, 7, 30))
                 .build();
-        Product p2 = new ProductBuilder()
-                .setName("Biscuits")
-                .setPrice(150)
-                .setQuantity(5)
+
+        Product p2 = new ProductBuilder("Biscuits", 150, 5)
                 .setWeight(700)
                 .setExpirationDate(LocalDate.of(2025, 7, 30))
                 .build();
