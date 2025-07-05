@@ -1,3 +1,5 @@
+package Models;
+
 public class CartItem {
 
    private Product product;

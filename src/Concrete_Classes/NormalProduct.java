@@ -1,3 +1,6 @@
+package Concrete_Classes;
+import Models.Product;
+
 public class NormalProduct extends Product {
 
 

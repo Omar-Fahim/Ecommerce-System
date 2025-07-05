@@ -1,3 +1,7 @@
+package Concrete_Classes;
+import Models.Product;
+import Interfaces.Shippable;
+
 public class ShippableProduct extends Product {
     private double weight;
 

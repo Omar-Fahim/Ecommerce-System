@@ -1,6 +1,9 @@
-import java.time.LocalDate;
+package Concrete_Classes;
 
-public class Shippable_and_ExpirableProduct extends Product implements Shippable{
+import java.time.LocalDate;
+import Models.Product;
+import Interfaces.Shippable;
+public class Shippable_and_ExpirableProduct extends Product implements Shippable {
 
     private double weight;
     private LocalDate expirationDate;

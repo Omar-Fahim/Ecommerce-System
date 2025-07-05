@@ -1,5 +1,7 @@
-import java.util.*;
+package Models;
 
+import java.util.*;
+import Interfaces.Shippable;
 public class Cart {
 
 
@@ -25,7 +27,7 @@ public class Cart {
     public void addCartItem(Product product, int quantity) {
 
         if(!product.isAvailable(quantity)){
-            throw new IllegalArgumentException("Product is not available in the requested quantity.");
+            throw new IllegalArgumentException("Models.Product is not available in the requested quantity.");
         }
 
         for (CartItem item : cartItems) {

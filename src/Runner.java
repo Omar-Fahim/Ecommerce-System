@@ -1,3 +1,7 @@
+import Factories.ProductFactory;
+import Models.Customer;
+import Models.Product;
+
 import java.time.LocalDate;
 
 public class Runner {

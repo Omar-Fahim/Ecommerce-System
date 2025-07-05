@@ -1,5 +1,8 @@
-import java.util.HashMap;
-import java.util.List;
+package Models;
+
+import Interfaces.Shippable;
+import Services.ShippingService;
+
 import java.util.Map;
 
 public class Customer {
@@ -55,7 +58,7 @@ public class Customer {
     public void checkout(){
 
         if(cart.isEmpty()) {
-            throw new IllegalStateException("Cart is empty");
+            throw new IllegalStateException("Models.Cart is empty");
         }
 
 

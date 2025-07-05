@@ -1,6 +1,8 @@
-import java.time.LocalDate;
+package Concrete_Classes;
 
-public  class ExpiringProduct extends Product{
+import java.time.LocalDate;
+import Models.Product;
+public  class ExpiringProduct extends Product {
     private LocalDate expirationDate;
 
     public ExpiringProduct(String name, double price, int quantity, LocalDate expirationDate) {

@@ -1,4 +1,7 @@
-import java.util.List;
+package Services;
+
+import Interfaces.Shippable;
+
 import java.util.Map;
 
 public class ShippingService {

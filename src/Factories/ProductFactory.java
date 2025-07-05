@@ -1,3 +1,11 @@
+package Factories;
+
+import Concrete_Classes.ExpiringProduct;
+import Concrete_Classes.NormalProduct;
+import Concrete_Classes.ShippableProduct;
+import Concrete_Classes.Shippable_and_ExpirableProduct;
+import Models.Product;
+
 import java.time.LocalDate;
 
 public class ProductFactory {
