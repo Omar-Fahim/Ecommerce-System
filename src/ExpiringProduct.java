@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-public abstract class ExpiringProduct extends Product{
+public  class ExpiringProduct extends Product{
     private LocalDate expirationDate;
 
     public ExpiringProduct(String name, double price, int quantity, LocalDate expirationDate) {
@@ -20,12 +20,9 @@ public abstract class ExpiringProduct extends Product{
     public boolean isExpired() {
         // Assumption: If the expiration date is today, the product is not considered expired.
 
-
         LocalDate today = LocalDate.now();
 
         return expirationDate.isBefore(today);
-
-
 
 
     }
