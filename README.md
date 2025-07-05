@@ -6,20 +6,18 @@ A Java-based e-commerce system with core features like product management, shopp
 
 ## 📑 Table of Contents
 
-- [Features](#features)
-- [Architecture & Design Patterns](#architecture--design-patterns)
-- [Techniques Used](#techniques-used)
-- [Project Structure](#project-structure)
-- [Getting Started](#getting-started)
-- [Usage Example 1](#usage-example-1)
-- [Sample Output 1](#sample-output-1)
-- [Usage Example 2](#usage-example-2)
-- [Sample Output 2](#sample-output-2)
-- [Contributing](#contributing)
-- [Contact](#contact)
-
+- Features
+- Architecture & Design Patterns
+- Techniques Used
+- Project Structure
+- Getting Started
+- Usage Example 1
+- Sample Output 1
+- Usage Example 2
+- Sample Output 2
+- Contributing
+- Contact
 ---
-
 ## ✨ Features
 
 - **Product Management**: Create, edit, and remove products (normal, expirable, shippable, or both).  
@@ -29,7 +27,6 @@ A Java-based e-commerce system with core features like product management, shopp
 - **Receipts**: Prints detailed shipment notices and receipts after checkout.  
 
 ---
-
 ## 🏗️ Architecture & Design Patterns
 
 This project applies several design patterns and clean architecture principles:
