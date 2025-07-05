@@ -18,7 +18,6 @@ A Java-based e-commerce system implementing core features such as product manage
 - [Usage Example](#usage-example)
 - [Sample Output](#sample-output)
 - [Contributing](#contributing)
-- [License](#license)
 - [Contact](#contact)
 
 ---
@@ -143,16 +142,10 @@ Contributions are welcome! Please fork the repository and submit pull requests f
 
 ---
 
-## License
-
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
-
----
-
 ## Contact
 
 - **Author:** [Omar Fahim](https://github.com/Omar-Fahim)
-- **Email:** [your-email@example.com]
+- **Email:** [omar_shaaban@outlook.com]
 
 ---
 
