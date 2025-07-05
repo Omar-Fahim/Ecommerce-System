@@ -224,7 +224,7 @@ Product p2 = new ProductBuilder("T-Shirt", 150, 1)
                 .build();
 c1.addToCart(p1, 2);
 c1.addToCart(p2, 1);
-Customer c2 = new Customer("Omar Shaaban", 500);
+Customer c2 = new Customer("Ahmed Shaaban", 500);
 c2.addToCart(p1,1);
 c1.checkout();
 c2.checkout();
