@@ -258,8 +258,36 @@ Exception in thread "main" java.lang.IllegalStateException: Ball is out of stock
 ```
 Exception in thread "main" java.lang.IllegalArgumentException: Models.Product is not available in the requested quantity.
 ```
-
+## Scenario 7 (Can not Add to the Cart Expired Product)
+```java
+Customer c1 = new Customer("Omar Shaaban", 600);
+Product p1 = new ProductBuilder("Ball", 100, 1)
+                .setExpirationDate(LocalDate.of(2020, 1, 1))
+                .build();
+c1.addToCart(p1, 1);
+c1.checkout();
+```
 ---
+## Sample Output 7
+```
+Exception in thread "main" java.lang.IllegalStateException: Ball is expired.
+```
+
+## Scenario 8 (Product Expired While in Cart)
+```java
+Customer c1 = new Customer("Omar Shaaban", 600);
+Product p1 = new ProductBuilder("Ball", 100, 1)
+                .setExpirationDate(LocalDate.of(2026, 1, 1))
+                .build();
+c1.addToCart(p1, 1);
+((ExpiringProduct)p1).setExpirationDate(LocalDate.of(2020, 1, 1));
+c1.checkout();
+```
+---
+## Sample Output 8
+```
+Exception in thread "main" java.lang.IllegalStateException: Ball is expired.
+```
 
 ## 🤝 Contributing
 
